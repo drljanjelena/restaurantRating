@@ -1,0 +1,23 @@
+{
+  "name": "projekatskriptjelena",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "joi": "^17.7.0",
+    "joi-password": "^4.0.0",
+    "jsonwebtoken": "^9.0.0",
+    "mariadb": "^3.0.2",
+    "sequelize": "^6.28.0",
+    "socket.io": "^4.7.2"
+  }
+}

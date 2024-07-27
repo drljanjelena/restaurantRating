@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>SJ22b</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="notificationsS.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/users">Users</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/listvisited">Visited list</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/listvisitedandrestaurant1">Visited list and restaurants</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/restaurants">Restaurants</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/typeofrestaurants">Types of restaurants</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/locations">Locations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/weeksfavourite">Weeks favourites</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/notifications">Notifications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/typeofnotifications">Types of notifications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/komentari">Comments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/ocene">Rating</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <button type="button" id="logout" class="btn btn-primary">Log Out</button>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit restaurant</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="mb-3">
+            <label for="content" class="col-form-label">Kontent:</label>
+            <input type="text" class="form-control" id="content">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="save" data-bs-dismiss="modal">Save shanges</button>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="container">
+        <h1>Notifications</h1>
+        <div class="col-sm-3 float-end">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Search">
+            <button class="btn btn-primary" type="button" id="btn_filter">Filter</button>
+          </div>
+        </div>
+        <table class="table table-bordered table-striped">
+          <thead>
+              <tr>
+                  <th>id</th>
+                  <th>Content</th>
+                  <th>restaurantID</th>
+                  <th>typeID</th>
+                  <th>Akcije</th>
+              </tr>
+          </thead>
+          <tbody id="taskovi">
+            <tr>
+                <td>11</td>
+                <td>komentar11</td>
+                <td>44</td>
+                <td>33</td>
+                <td>
+                  <button class="btn btn-success btn-sm btn_zavrsi">Edit</button>
+                  <button class="btn btn-danger  btn-sm btn_obrisi">Obriši</button>
+                </td>
+            </tr>
+              <tr>
+                  <td>11</td>
+                  <td>komentar11</td>
+                  <td>44</td>
+                  <td>33</td>
+                  <td>
+                      <button class="btn btn-success btn-sm btn_zavrsi">Edit</button>
+                      <button class="btn btn-danger  btn-sm btn_obrisi">Obriši</button>
+                  </td>
+              </tr>
+          </tbody>
+        </table>
+        <div class="card">
+          <div class="card-body">
+            <h4>Dodaj novo obavestenje</h4>
+            <form id="noviTask">
+            <div class="row">
+                <div class="col-sm-6">
+                  <div class="mb-3">
+                    <label for="novo_obavestenje_content" class="form-label">Content:</label>
+                    <input type="text" class="form-control" id="novo_obavestenje_content">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">RestoranID:</label>
+                    <select for="novo_obavestenje_rID" class="form-select" id="novo_obavestenje_rID">
+                      <option value="1">nbt</option>
+                    </select>
+                  </div>
+                    <div class="mb-3">
+                      <label class="form-label">TypeID:</label>
+                      <select for="novo_obavestenje_tID" class="form-select" id="novo_obavestenje_tID">
+                        <option value="1">Vezba</option>
+                      </select>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                  <button type="button" class="btn btn-primary" id="btn_dodaj">Dodaj</button>
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </form> 
+      </div>
+</body>
+</html> 

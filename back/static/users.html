@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Users</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="usersS.js"></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/users">Users</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/listvisited">Visited list</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/listvisitedandrestaurant1">Visited list and restaurants</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/restaurants">Restaurants</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/typeofrestaurants">Types of restaurants</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/locations">Locations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/weeksfavourite">Weeks favourites</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/notifications">Notifications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/typeofnotifications">Types of notifications</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/komentari">Comments</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8000/ocene">Rating</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container">
+    <button type="button" id="logout" class="btn btn-primary">Log Out</button>
+</div>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit restaurant</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="name" class="col-form-label">Name:</label>
+              <input type="text" class="form-control" id="name">
+            </div>
+            <div class="mb-3">
+              <label for="email" class="col-form-label">Email:</label>
+              <input type="text" class="form-control" id="email">
+            </div>
+            <div class="mb-3">
+              <label for="role" class="col-form-label">Role:</label>
+              <input type="text" class="form-control" id="role">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" id="save" data-bs-dismiss="modal">Save shanges</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>Users</h1>
+    <div class="col-sm-3 float-end">
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Search">
+        <button class="btn btn-primary" type="button" id="btn_filter">Filter</button>
+      </div>
+    </div>
+    <table class="table table-bordered table-striped">
+      <thead>
+          <tr>
+              <th>id</th>
+              <th>Name</th>
+              <th>Password</th>
+              <th>Email</th>
+              <th>Role</th>
+              <th>Akcije</th>
+          </tr>
+      </thead>
+      <tbody id="taskovi">
+        <tr>
+            <td>1</td>
+            <td>Jelena</td>
+            <td>jelena123</td>
+            <td>jelena@j.com</td>
+            <th>Admin</th>
+            <td>
+              <button class="btn btn-success btn-sm btn_zavrsi">Edit</button>
+              <button class="btn btn-danger  btn-sm btn_obrisi">Obriši</button>
+            </td>
+        </tr>
+          <tr>
+            <td>2</td>
+            <td>Anja</td>
+            <td>anja1234</td>
+            <td>anja@a.com</td>
+            <th>Moderator</th>
+              <td>
+                  <button class="btn btn-success btn-sm btn_zavrsi">Edit</button>
+                  <button class="btn btn-danger  btn-sm btn_obrisi">Obriši</button>
+              </td>
+          </tr>
+      </tbody>
+    </table>
+    <div class="card">
+      <div class="card-body">
+        <h4>Dodaj novog korisnika</h4>
+        <form id="noviTask">
+        <div class="row">
+            <div class="col-sm-6">
+              <div class="mb-3">
+                <label for="novi_user_name" class="form-label">Name:</label>
+                <input type="text" class="form-control" id="novi_user_name">
+              </div>
+              <div class="mb-3">
+                <label for="novi_user_password" class="form-label">Password:</label>
+                <input type="password" class="form-control" id="novi_user_password">
+              </div>
+              <div class="mb-3">
+                <label for="novi_user_email" class="form-label">Email:</label>
+                <input type="text" class="form-control" id="novi_user_email">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Role:</label>
+                <select for="novi_user_role" class="form-select" id="novi_user_role">
+                  <option value="1">Admin</option>
+                  <option value="2">Moderator</option>
+                  <option value="3">User</option>
+                </select>
+              </div>
+              </div>
+            <div class="col-sm-6">
+              <button type="button" class="btn btn-primary" id="btn_dodaj">Dodaj</button>
+            </div>
+        </div>
+        </div>
+      </div>
+    </div>
+  </form> 
+  </div>
+</body>
+</html> 
